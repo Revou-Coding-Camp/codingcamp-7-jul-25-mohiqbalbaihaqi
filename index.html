@@ -3,16 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- css -->
     <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>To Do List</title>
   </head>
-  <body>
-    <header>
-      <p>Todo List</p>
+  <body
+    class="dark:bg-gray-800 flex flex-col items-center justify-center min-h-screen text-center"
+  >
+    <!-- Hero Website -->
+    <header
+      class="bg-gray-600 sm:w-lg w-100 justify-self-center text-white py-3 rounded-ss rounded-se"
+    >
+      <p class="text-2xl font-bold">Todo List</p>
     </header>
-    <main></main>
-    <footer></footer>
-    <!-- javascript external -->
+
+    <main
+      class="bg-gray-600 sm:w-lg w-100 justify-self-center sm:p-3 p-1 rounded-es rounded-ee"
+    >
+      <!-- To Do Input -->
+      <form action="" class="sm:flex sm:justify-between sm:p-[10px] p-[10px]">
+        <div class="sm:flex flex gap-2">
+          <input
+            type="text"
+            id="task-input"
+            class="border border-sky-600 p-2 rounded bg-gray-800 text-white sm:w-[200px] w-[200px]"
+          />
+          <input
+            type="date"
+            id="due-date-input"
+            class="border border-sky-600 p-2 rounded bg-gray-800 text-white sm:w-[200px] w-[200px]"
+          />
+        </div>
+        <button
+          type="button"
+          class="bg-green-600 p-2 mt-2 sm:mt-0 rounded w-[370px] sm:w-[50px] font-extrabold text-white"
+          onclick="addTask()"
+        >
+          +
+        </button>
+      </form>
+
+      <!-- To Do Action -->
+      <section class="flex justify-between p-[10px]">
+        <div class="flex gap-2">
+          <select
+            id="status-filter"
+            class="bg-gray-800 text-white border border-sky-600 p-1 rounded"
+          >
+            <option value="all">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <button
+            class="bg-sky-600 p-[4px] rounded text-white"
+            onclick="filterTasks()"
+          >
+            Filter
+          </button>
+        </div>
+        <button
+          class="bg-red-500 p-[4px] rounded text-white"
+          onclick="deleteAllTasks()"
+        >
+          Delete All
+        </button>
+      </section>
+
+      <!-- To Do List -->
+      <section class="bg-gray-800 rounded mx-2">
+        <table class="sm:w-[100%] w-[100%]">
+          <thead>
+            <tr>
+              <th class="bg-gray-900 rounded-ss text-white p-[8px]">Task</th>
+              <th class="bg-gray-900 text-white p-[8px]">Due Date</th>
+              <th class="bg-gray-900 text-white p-[8px]">Status</th>
+              <th class="bg-gray-900 rounded-se text-white p-[8px]">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4" class="p-2 text-gray-400">No task found</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p class="text-white font-bold">©2025 Mi Bhq. All rights reserved</p>
+    </footer>
+
+    <!-- javascript -->
     <script src="/js/script.js"></script>
   </body>
 </html>
